@@ -1,0 +1,13 @@
+命令格式：
+    ffmpeg -i [输入文件名] [参数选项] -f [格式] [输出文件]
+    ffmpeg [[options][`-i' input_file]]... {[options] output_file}...
+
+    1、参数选项：
+    (1) -an: 去掉音频
+    (2) -acodec: 音频选项， 一般后面加copy表示拷贝
+    (3) -vcodec:视频选项，一般后面加copy表示拷贝
+
+    2、-f 格式：
+    (1) h264: 表示输出的是h264的视频裸流
+    (2) mp4: 表示输出的是mp4的视频
+    (3)mpegts: 表示ts视频流

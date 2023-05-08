@@ -1,0 +1,31 @@
+1.ffmpeg -hide_banner -i 0.mp4 -i 1_2.gif -filter_complex "overlay=x=0:y=0:eof_action=pass" out.mp4 -y
+
+内置小窗视频
+
+2.ffmpeg -hide_banner -i 0.mp4 -vf "movie=1_2.gif:loop=0,setpts=N/FRAME_RATE/TB[out];[0:v][out]overlay=0:0" -shortest out.mp4 -y
+
+循环动态水印
+
+3.ffmpeg -hide_banner -i 0.mp4 -itsoffset 3 -i 1_2.gif -filter_complex "overlay=x=0:y=0:eof_action=pass" out.mp4 -y
+
+水印延迟3秒出现
+
+4.ffmpeg -hide_banner -i 0.mp4 -i 1.png -filter_complex "overlay=x:y:enable='lte(t,5)'" out.mp4 -y
+
+设置水印持续5秒
+
+5.ffmpeg -hide_banner -i big_buck_bunny.mp4 -i doggie2.png -filter_complex "overlay=enable=\'between(t,5,10)\'" out.mp4 -y
+
+设置水印显示时间段5-10秒
+
+6.ffmpeg -i 0.mp4 -ignore_loop 0 -i 1_2.gif -lavfi "overlay=x=t*20" -shortest out.mp4 -y
+
+设置水印随时间流动
+
+
+
+
+
+
+
+

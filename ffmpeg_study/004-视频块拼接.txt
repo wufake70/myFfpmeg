@@ -1,0 +1,10 @@
+1.将要拼接的视频的名字存放到TXT文本中
+eg：
+for /l %i in (0,3,1478) do echo file '%i.mp4'>>video_list.txt （依情况而定）
+
+2.使用FFmpeg concat 分离器
+    这种方法成功率很高，也是最好的，但是需要 FFmpeg 1.1 以上版本。先创建一个文本文件filelist.txt：
+    file 'input1.mkv'
+    file 'input2.mkv'
+    file 'input3.mkv'
+指令：ffmpeg -f concat -i video_list.txt -vcodec copy video2.mp4

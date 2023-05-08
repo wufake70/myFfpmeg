@@ -1,0 +1,10 @@
+2. 将音频按照时间段切片
+ffmpeg -i {file_path} -vn -acodec copy -ss {start_time} -to {end_time} -c copy {file_name}
+	file_path: 视频的文件路径
+	start_time: 开始时间
+	end_time: 结束时间
+	file_name: 文件名称
+	-vn: 作为输入选项，阻止文件的所有视频流被过滤或自动选择或映射到任何输出
+	-acodec: 设置音频编解码器。这是 的别名-codec:a
+	-ss: 当用作输入选项（before -i）时，在这个输入文件中寻找 位置。请注意，在大多数格式中，无法精确查找，因此ffmpeg将查找到position之前最近的查找点
+	-to: 停止在位置写入输出或读取输入, -to 和 -t 是互斥的，-t 有优先权

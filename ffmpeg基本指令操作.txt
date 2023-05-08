@@ -1,0 +1,17 @@
+1.将.mp4的音频文件转为.aac的音频文件
+指令：ffmpeg -i 聲音檔案路徑.mp4 -acodec copy -vn 輸出路徑.aac
+
+2.将.aac的音频文件和视频文件合成（注意路径中只能出现字母、下划线、数字否则报错）
+指令：ffmpeg -i 影片檔案路徑.mp4 -i 聲音檔案.aac -c:v copy -c:a aac -strict experimental 輸出路徑.mp4
+
+3.视频的片段截取 （注意：-ss是开始时间，-t是要截取的时间）
+指令：ffmpeg -ss 00:00:00 -t 00:02:00 -i D:\Fire_Fox_download\video1.mp4 -vcodec copy -acodec copy D:\Fire_Fox_download\video1_1min.mp4
+注意：-t表示时间间隔 ，-to表示结尾时间
+
+4.两个视频的拼接
+方法：FFmpeg concat 分离器
+    这种方法成功率很高，也是最好的，但是需要 FFmpeg 1.1 以上版本。先创建一个文本文件filelist.txt：
+    file 'input1.mkv'
+    file 'input2.mkv'
+    file 'input3.mkv'
+指令：ffmpeg -f concat -i D:\Fire_Fox_download\video_list.txt -vcodec copy D:\Fire_Fox_download\video2.mp4

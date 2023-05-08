@@ -1,0 +1,7 @@
+ffmpeg -i 去水印.mp4 -i 1.png -filter_complex overlay=527:14 添加水印.mp4
+
+参数说明：
+-filter_complex 
+
+overlay=x:y		(覆盖的起始坐标，是图片的左上角)
+注意：图片的原始尺寸，不宜过大，影响关视频的观感

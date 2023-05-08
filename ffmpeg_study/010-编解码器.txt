@@ -1,0 +1,2 @@
+命令格式: 
+	ffmpeg -i input -c:v encoder options -c:a encoder options output

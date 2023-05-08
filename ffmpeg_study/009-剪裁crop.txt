@@ -1,0 +1,7 @@
+ffmpeg -i %a% -vf crop=w:h:x:y crop_%a%
+
+
+参数说明:
+1.-vf (视频滤镜)
+2.crop=w:h:x:y
+w:h 宽度：高度， x:y 切割原点(图片原点左上角)

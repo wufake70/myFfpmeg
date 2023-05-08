@@ -1,0 +1,20 @@
+视频的片段截取 （注意：-ss是开始时间，-t是要截取的时间）
+指令：ffmpeg -ss 00:00:00 -t 00:02:00 -i D:\Fire_Fox_download\video1.mp4 -vcodec copy -acodec copy D:\Fire_Fox_download\video1_1min.mp4
+
+高级：ffmpeg -ss %2 -t %sgt% -i %fp% -c:v libx264 -c:a mp3 -strict experimental -strict -b 98k %2.mp4
+
+参数解释：
+-strict experimental
+
+-b 98k
+
+
+注意：-t表示时间间隔 ，-to表示结尾时间
+
+
+问题：
+这种方式切割出来的视频，在此合并后有卡帧问题，
+
+解决方法：
+截取时先对视频重新编码，再截取，编码时长只是针对要截取视频片段的长度
+ffmpeg命令：ffmpeg -ss 00:01:00 -t 140 -i Y天屠龙记2019-14.mp4 -c:v libx264 -c:a aac -strict experimental -b:a 98k out2.mp4
